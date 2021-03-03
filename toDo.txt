@@ -1,0 +1,8 @@
+Обратите внимание на совместимость версий Java и Scala:
+https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
+Если вы используете версию Scala из данного проекта (2.12.4), версия Java должна быть 8.
+
+Порядок выполнения заданий:
+1) SimpleExample
+2) FileBasedStreamingWordCount
+3) AverageSensorReading (по материалам книги "Stream Processing with Apache Flink" Fabian Hueske, Vasia Kalavri)
