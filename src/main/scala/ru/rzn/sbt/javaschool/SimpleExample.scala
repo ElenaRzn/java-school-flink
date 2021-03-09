@@ -1,7 +1,6 @@
 package ru.rzn.sbt.javaschool
 import org.apache.flink.api.common.typeinfo.TypeInformation
-import org.apache.flink.streaming.api.datastream.DataStream
-import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
+import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 
 /**
  * В параметрах запуска не забудьте указать "Include dependencies with "Provided" scope"
@@ -18,11 +17,12 @@ object SimpleExample extends App {
   val source = env.fromElements("1", "2", "3", "4", "5")
 
   // TODO напишите код обработки данных, который умножает входное число на 10 и фильтрует только четные
-  //val data: DataStream[Int] =
+  val data = source.map(_.toInt)
+    .map(_*10)
+    .filter(_%2 == 0)
 
   // запись результатов: кафка, файл, консоль и т.д.
-  //TODO - раскомментируйте выводя
-  //data.print()
+  data.print()
 
   // запуск потока
   env.execute("My First Flink Job")
